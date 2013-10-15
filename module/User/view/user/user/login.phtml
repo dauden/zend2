@@ -1,0 +1,34 @@
+<?php
+
+$title = 'Login';
+$this->headTitle($title);
+?>
+<h2><?php echo $this->escapeHtml($title); ?></h2>
+		<?php
+			$form = $this->form;
+        	$form->setAttribute('action','/user/login');
+			$form->setAttribute('class','form-validate');
+			$form->setAttribute('novalidate','novalidate');
+        	$form->prepare();
+        	echo $this->form()->openTag($form) . "\n"; ?>
+            <p style="color:#FF0000"><?php echo $this->errorMessage; ?></p>
+				<div class="control-group">
+					<div class="email controls">
+						<?php echo $this->formRow($form->get('email')) ?>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="pw controls">
+						<?php echo $this->formRow($form->get('password')) . "<br/>\n"; ?>
+					</div>
+				</div>
+				<div class="submit">
+					<div class="remember">
+						   <?php echo $this->formRow($form->get('remember')) . "<br/>\n"; ?>
+					</div>
+					<?php  echo $this->formRow($form->get('submit')) . "\n"; ?>
+				</div>
+			<?php  echo $this->form()->closeTag($form) . "\n"; ?>
+			<div class="forget">
+				<a href="#"><span>Forgot password?</span></a>
+			</div>

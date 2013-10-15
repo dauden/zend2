@@ -1,0 +1,57 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+    <head>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<!-- Apple devices fullscreen -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!-- Apple devices fullscreen -->
+		<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+        <?php echo $this->headTitle($this->translate('BizOn - E-Vehicle'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' =>$this->basePath() . '/img/favicon.ico')) . "\n";
+		echo $this->headLink(array('rel' => 'icon', 'sizes' => '32x32', 'href' =>$this->basePath() . '/img/favicon.png'));
+			?>
+			
+         <!-- Scripts -->
+        <?php echo $this->headScript()->setAllowArbitraryAttributes(true)
+           	->prependFile($this->basePath() . '/js/require.js' ,  'text/javascript', array('data-main' => $this->basePath() .'/js/app',));
+			?>
+		<!--[if lte IE 9]>
+		<script>
+			$(document).ready(function() {
+				$('input, textarea').placeholder();
+			});
+		</script>
+	<![endif]-->
+    <link rel="apple-touch-icon-precomposed" href="<?php echo $this->basePath('img/apple-touch-icon-precomposed.png') ?>" />
+
+</head>
+
+<body class="theme-blue">
+<div id="navigation">
+		<div class="container-fluid">
+			<a href="#" id="brand">E-Vehicle</a>
+			<a href="#" class="toggle-nav" rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+            <?php echo $this->render('share/topmenu.phtml'); ?>
+		</div>
+	</div>
+    <div class="container-fluid" id="content">
+		<?php echo $this->render('share/leftmenu.phtml'); ?>
+        <div id="main">
+            <?php echo $this->content; ?>
+            </div>
+            </div>
+            <footer>
+                <p>&copy; 2005 - <?php echo date('Y') ?> by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
+            </footer>
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>

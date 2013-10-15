@@ -1,0 +1,45 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<!-- Apple devices fullscreen -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!-- Apple devices fullscreen -->
+		<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+        <?php echo $this->headTitle($this->translate('BizOn - E-Vehicle'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+	
+	<!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' =>$this->basePath() . '/img/favicon.ico'));
+?>
+	 <!-- Scripts -->
+        <?php echo $this->headScript()->setAllowArbitraryAttributes(true)
+           	->prependFile($this->basePath() . '/js/require.js' ,  'text/javascript', array('data-main' => $this->basePath() .'/js/user',));
+		?>
+        <!--[if lte IE 9]>
+		<script>
+			$(document).ready(function() {
+				$('input, textarea').placeholder();
+			});
+		</script>
+	<![endif]-->
+<link rel="apple-touch-icon-precomposed" href="<?php echo $this->basePath('img/apple-touch-icon-precomposed.png') ?>" />
+</head>
+
+<body class='login'>
+	<div class="wrapper">
+		<h1><a href="/"><img src="/img/logo-big.png" alt="" class='retina-ready' width="59" height="49">E-Vehicle</a></h1>
+		<div class="login-body">
+        <?php  echo $this->layout()->content; ?>
+		</div>
+	</div>
+      <?php echo $this->inlineScript() ?>
+</body>
+
+</html>
